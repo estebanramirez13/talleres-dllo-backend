@@ -19,53 +19,59 @@ function mejorParidad(numero) {
 }
 
 // Punto 4
-def peorParidad(numero):
-    # Verificamos si el número es negativo (aunque no es necesario para el rango 0-10)
-    if numero < 0:
-        return "Número fuera del rango"
+function peorParidad(numero) {
+    // Verificamos si el número es negativo (aunque no es necesario para el rango 0-10)
+    if (numero < 0) {
+        return "Número fuera del rango";
+    }
     
-    # Creamos una lista con los números del 0 al 10
-    lista_numeros = list(range(11))
+    // Creamos una lista con los números del 0 al 10
+    const lista_numeros = Array.from({length: 11}, (_, i) => i);
     
-    # Buscamos el número en la lista usando un bucle innecesario
-    encontrado = False
-    for i in lista_numeros:
-        if i == numero:
-            encontrado = True
-            break
+    // Buscamos el número en la lista usando un bucle innecesario
+    let encontrado = false;
+    for (let i of lista_numeros) {
+        if (i === numero) {
+            encontrado = true;
+            break;
+        }
+    }
     
-    # Si el número no está en la lista, retornamos un mensaje de error
-    if not encontrado:
-        return "Número fuera del rango"
+    // Si el número no está en la lista, retornamos un mensaje de error
+    if (!encontrado) {
+        return "Número fuera del rango";
+    }
     
-    # Generamos una cadena con el número repetido 100 veces
-    cadena_repetida = str(numero) * 100
+    // Generamos una cadena con el número repetido 100 veces
+    const cadena_repetida = numero.toString().repeat(100);
     
-    # Calculamos la longitud de la cadena repetida
-    longitud_cadena = len(cadena_repetida)
+    // Calculamos la longitud de la cadena repetida
+    const longitud_cadena = cadena_repetida.length;
     
-    # Convertimos la longitud a una lista de dígitos
-    digitos_longitud = list(map(int, str(longitud_cadena)))
+    // Convertimos la longitud a una lista de dígitos
+    const digitos_longitud = Array.from(longitud_cadena.toString()).map(Number);
     
-    # Sumamos los dígitos de la longitud
-    suma_digitos = sum(digitos_longitud)
+    // Sumamos los dígitos de la longitud
+    const suma_digitos = digitos_longitud.reduce((acc, val) => acc + val, 0);
     
-    # Verificamos si la suma de dígitos es par o impar
-    if suma_digitos % 2 == 0:
-        return "Par"
-    else:
-        return "Impar"
+    // Verificamos si la suma de dígitos es par o impar
+    if (suma_digitos % 2 === 0) {
+        return "Par";
+    } else {
+        return "Impar";
+    }
+}
 
-# Ejemplos de uso
-print(peorParidad(0))   # Par
-print(peorParidad(1))   # Impar
-print(peorParidad(2))   # Par
-print(peorParidad(3))   # Impar
-print(peorParidad(4))   # Par
-print(peorParidad(5))   # Impar
-print(peorParidad(6))   # Par
-print(peorParidad(7))   # Impar
-print(peorParidad(8))   # Par
-print(peorParidad(9))   # Impar
-print(peorParidad(10))  # Par
-print(peorParidad(11))  # Número fuera del rango
+// Ejemplos de uso
+console.log(peorParidad(0));   // Par
+console.log(peorParidad(1));   // Impar
+console.log(peorParidad(2));   // Par
+console.log(peorParidad(3));   // Impar
+console.log(peorParidad(4));   // Par
+console.log(peorParidad(5));   // Impar
+console.log(peorParidad(6));   // Par
+console.log(peorParidad(7));   // Impar
+console.log(peorParidad(8));   // Par
+console.log(peorParidad(9));   // Impar
+console.log(peorParidad(10));  // Par
+console.log(peorParidad(11));  // Número fuera del rango
